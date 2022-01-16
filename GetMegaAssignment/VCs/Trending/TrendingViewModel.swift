@@ -16,7 +16,7 @@ enum VcState {
     case reloadRow(indexPath: [IndexPath])
 }
 
-class TrendingViewModel {
+class TrendingViewModel: TrendingViewModelProtocol {
     
     let screenTitle: String
     private let service: Service
@@ -62,14 +62,6 @@ extension TrendingViewModel {
     func repo(at index: IndexPath) -> TrendingRepoItem? {
         self.reposItems[safe: index.row]
     }
-}
-
-extension TrendingViewModel: ErrorStateViewDelegate {
-    
-    func handleErrorCtaClick() {
-        self.fetchRepos()
-    }
-    
 }
 
 extension TrendingViewModel {

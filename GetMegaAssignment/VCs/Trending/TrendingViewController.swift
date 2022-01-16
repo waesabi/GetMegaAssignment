@@ -9,7 +9,7 @@ import UIKit
 
 class TrendingViewController: UIViewController {
     
-    private let viewModel: TrendingViewModel
+    private let viewModel: TrendingViewModelProtocol
     
     @IBOutlet private(set) weak var tableView: UITableView!
     private var loadingStateView: LoadingStateView?
@@ -17,7 +17,7 @@ class TrendingViewController: UIViewController {
     
     private let refreshControl = UIRefreshControl()
     
-    init(viewModel: TrendingViewModel) {
+    init(viewModel: TrendingViewModelProtocol) {
         self.viewModel = viewModel
         super.init(
             nibName: String(describing: TrendingViewController.self),
@@ -91,7 +91,7 @@ extension TrendingViewController {
             error.backgroundColor = .clear
             self.view.addSubview(error)
             error.fillSuperview()
-            error.delegate = self.viewModel
+            error.delegate = self
             self.errorStateView = error
         case .pullToRefresh:
             break
@@ -103,7 +103,7 @@ extension TrendingViewController {
             error.updateUIElement(message: message)
             error.backgroundColor = .clear
             self.view.addSubview(error)
-            error.delegate = self.viewModel
+            error.delegate = self
             error.fillSuperview()
             self.errorStateView = error
         case .reloadRow(let indexPaths):
@@ -132,6 +132,14 @@ extension TrendingViewController {
             forCellReuseIdentifier: String(describing: UITableViewCell.self))
         self.tableView.refreshControl = self.refreshControl
         self.refreshControl.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
+    }
+    
+}
+
+extension TrendingViewController: ErrorStateViewDelegate {
+    
+    func handleErrorCtaClick() {
+        self.viewModel.fetchRepos()
     }
     
 }
