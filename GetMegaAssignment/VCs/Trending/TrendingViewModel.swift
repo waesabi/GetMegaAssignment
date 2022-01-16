@@ -9,5 +9,12 @@ import Foundation
 
 class TrendingViewModel {
     
+    let screenTitle: String
+    
+    
+    init(screenTitle: String) {
+        self.screenTitle = screenTitle        
+    }
+    
     
 }
