@@ -13,6 +13,7 @@
 		2F9EFD292793E22500AA3A37 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F9EFD272793E22500AA3A37 /* Main.storyboard */; };
 		2F9EFD2B2793E22800AA3A37 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F9EFD2A2793E22800AA3A37 /* Assets.xcassets */; };
 		2F9EFD2E2793E22800AA3A37 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F9EFD2C2793E22800AA3A37 /* LaunchScreen.storyboard */; };
+		2F9EFD372793E29200AA3A37 /* UIView+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9EFD362793E29200AA3A37 /* UIView+Layout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		2F9EFD2A2793E22800AA3A37 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2F9EFD2D2793E22800AA3A37 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2F9EFD2F2793E22800AA3A37 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2F9EFD362793E29200AA3A37 /* UIView+Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Layout.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 		2F9EFD202793E22500AA3A37 /* GetMegaAssignment */ = {
 			isa = PBXGroup;
 			children = (
+				2F9EFD352793E27F00AA3A37 /* utils */,
 				2F9EFD212793E22500AA3A37 /* AppDelegate.swift */,
 				2F9EFD232793E22500AA3A37 /* SceneDelegate.swift */,
 				2F9EFD252793E22500AA3A37 /* ViewController.swift */,
@@ -65,6 +68,14 @@
 				2F9EFD2F2793E22800AA3A37 /* Info.plist */,
 			);
 			path = GetMegaAssignment;
+			sourceTree = "<group>";
+		};
+		2F9EFD352793E27F00AA3A37 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				2F9EFD362793E29200AA3A37 /* UIView+Layout.swift */,
+			);
+			path = utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,6 +151,7 @@
 			files = (
 				2F9EFD262793E22500AA3A37 /* ViewController.swift in Sources */,
 				2F9EFD222793E22500AA3A37 /* AppDelegate.swift in Sources */,
+				2F9EFD372793E29200AA3A37 /* UIView+Layout.swift in Sources */,
 				2F9EFD242793E22500AA3A37 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
