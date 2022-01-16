@@ -121,7 +121,6 @@ extension Cache: Codable where Key: Codable, Value: Codable {
         withName name: String,
         using fileManager: FileManager = .default
     ) throws {
-        print(self.keyTracker.keys)
         let folderURLs = fileManager.urls(
             for: .cachesDirectory,
                in: .userDomainMask

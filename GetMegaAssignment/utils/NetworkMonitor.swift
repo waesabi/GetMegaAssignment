@@ -24,7 +24,6 @@ class NetworkMonitor {
     }
 
     func stopMonitoring() {
-        print("stop monitoring")
         monitor.cancel()
     }
 }
