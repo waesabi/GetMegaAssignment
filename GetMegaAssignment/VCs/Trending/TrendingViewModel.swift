@@ -29,26 +29,13 @@ class TrendingViewModel {
         self.state = .init(.loading)
     }
     
-    func fetchTrendingRepo() {
+    func fetchRepos() {
         self.state.value = .loading
-        let endPoint = Endpoint(path: "/search/repositories", queryItems: [
-            .init(name: "q", value: "flutter"),
-            .init(name: "per_page", value: "50"),
-            .init(name: "page", value: "1"),
-            .init(name: "order", value: "desc"),
-            .init(name: "since", value: "daily")
-        ])
-        service.fetch(endpoint: endPoint,
-                      type: TrendingRepoModel.self) { result in
-            switch result {
-            case .success(let resp):
-                self.reposItems = resp.items ?? []
-                self.state.value = self.reposItems.isEmpty ?
-                    .empty : .data
-            case .failure(let error):
-                self.state.value = .error(message: error.localizedDescription)
-            }
-        }
+        self.fetchTrendingRepos()
+    }
+    
+    func refreshRepos() {        
+        self.fetchTrendingRepos()
     }
     
     func handleRepoSelection(at indexPath: IndexPath) {
@@ -80,7 +67,32 @@ extension TrendingViewModel {
 extension TrendingViewModel: ErrorStateViewDelegate {
     
     func handleErrorCtaClick() {
-        self.fetchTrendingRepo()
+        self.fetchRepos()
+    }
+    
+}
+
+extension TrendingViewModel {
+    
+    private func fetchTrendingRepos() {
+        let endPoint = Endpoint(path: "/search/repositories", queryItems: [
+            .init(name: "q", value: "flutter"),
+            .init(name: "per_page", value: "50"),
+            .init(name: "page", value: "1"),
+            .init(name: "order", value: "desc"),
+            .init(name: "since", value: "daily")
+        ])
+        service.fetch(endpoint: endPoint,
+                      type: TrendingRepoModel.self) { result in
+            switch result {
+            case .success(let resp):
+                self.reposItems = resp.items ?? []
+                self.state.value = self.reposItems.isEmpty ?
+                    .empty : .data
+            case .failure(let error):
+                self.state.value = .error(message: error.localizedDescription)
+            }
+        }
     }
     
 }

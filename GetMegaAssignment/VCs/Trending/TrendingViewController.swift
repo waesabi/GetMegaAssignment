@@ -15,6 +15,8 @@ class TrendingViewController: UIViewController {
     private var loadingStateView: LoadingStateView?
     private var errorStateView: ErrorStateView?
     
+    private let refreshControl = UIRefreshControl()
+    
     init(viewModel: TrendingViewModel) {
         self.viewModel = viewModel
         super.init(
@@ -29,14 +31,20 @@ class TrendingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
+        
+        self.viewModel.state.bind { [weak self] state in
+            self?.handleStateChange(state: state)
+        }
+        
         self.fetchRepos()
     }
     
     private func fetchRepos() {
-        self.viewModel.state.bind { [weak self] state in
-            self?.handleStateChange(state: state)
-        }
-        self.viewModel.fetchTrendingRepo()
+        self.viewModel.fetchRepos()
+    }
+    
+    @objc private func handleRefresh() {
+        self.viewModel.refreshRepos()
     }
 
 }
@@ -70,7 +78,7 @@ extension TrendingViewController {
         self.errorStateView?.removeFromSuperview()
         self.loadingStateView?.removeFromSuperview()
         self.tableView.isHidden = true
-        
+        self.refreshControl.endRefreshing()
         switch state {
         case .loading:
             let loading = LoadingStateView()
@@ -122,6 +130,8 @@ extension TrendingViewController {
         self.tableView.register(
             UITableViewCell.self,
             forCellReuseIdentifier: String(describing: UITableViewCell.self))
+        self.tableView.refreshControl = self.refreshControl
+        self.refreshControl.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
     }
     
 }
