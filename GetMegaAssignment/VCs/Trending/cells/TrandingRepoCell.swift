@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class TrandingRepoCell: UITableViewCell {
     
@@ -33,7 +34,7 @@ class TrandingRepoCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        self.logoImageView.layer.cornerRadius = 22        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -46,6 +47,8 @@ class TrandingRepoCell: UITableViewCell {
         self.loginNameLabel.text = repo.owner?.login
         self.nameLabel.text = repo.fullName
         self.descriptionLabel.text = repo.description
+        
+        self.logoImageView.sd_setImage(with: .init(string: repo.owner?.avatarURL ?? ""), completed: nil)
         
         self.languageLabel.text = repo.language
         self.languageStackView.isHiddenInStackView = repo.language == nil
