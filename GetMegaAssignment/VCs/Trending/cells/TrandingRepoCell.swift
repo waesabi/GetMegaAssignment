@@ -34,7 +34,7 @@ class TrandingRepoCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.logoImageView.layer.cornerRadius = 22        
+        self.logoImageView.layer.cornerRadius = 22
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

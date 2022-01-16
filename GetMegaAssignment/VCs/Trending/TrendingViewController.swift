@@ -86,26 +86,15 @@ extension TrendingViewController {
             self.view.addSubview(loading)
             loading.fillSuperview()
             self.loadingStateView = loading
-        case .empty:
-            let error = ErrorStateView()
-            error.backgroundColor = .clear
-            self.view.addSubview(error)
-            error.fillSuperview()
-            error.delegate = self
-            self.errorStateView = error
+        case .empty(let message):
+            self.errorStateView = self.handleErrorState(message: message)
         case .pullToRefresh:
             break
         case .data:
             self.tableView.isHidden = false
             self.tableView.reloadData()
         case .error(let message):
-            let error = ErrorStateView()
-            error.updateUIElement(message: message)
-            error.backgroundColor = .clear
-            self.view.addSubview(error)
-            error.delegate = self
-            error.fillSuperview()
-            self.errorStateView = error
+            self.errorStateView = self.handleErrorState(message: message)
         case .reloadRow(let indexPaths):
             self.tableView.isHidden = false
             self.tableView.reloadRows(at: indexPaths, with: .fade)
@@ -132,6 +121,16 @@ extension TrendingViewController {
             forCellReuseIdentifier: String(describing: UITableViewCell.self))
         self.tableView.refreshControl = self.refreshControl
         self.refreshControl.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
+    }
+    
+    private func handleErrorState(message: String) -> ErrorStateView {
+        let error = ErrorStateView()
+        error.updateUIElement(message: message)
+        error.backgroundColor = .clear
+        self.view.addSubview(error)
+        error.fillSuperview()
+        error.delegate = self
+        return error
     }
     
 }

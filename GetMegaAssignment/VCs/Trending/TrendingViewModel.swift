@@ -10,7 +10,7 @@ import Foundation
 enum VcState {
     case loading
     case error(message: String)
-    case empty
+    case empty(message: String)
     case data
     case pullToRefresh
     case reloadRow(indexPath: [IndexPath])
@@ -67,8 +67,9 @@ extension TrendingViewModel {
 extension TrendingViewModel {
     
     private func fetchTrendingRepos() {
+        let query = "flutter"
         let endPoint = Endpoint(path: "/search/repositories", queryItems: [
-            .init(name: "q", value: "flutter"),
+            .init(name: "q", value: query),
             .init(name: "per_page", value: "50"),
             .init(name: "page", value: "1"),
             .init(name: "order", value: "desc"),
@@ -79,8 +80,13 @@ extension TrendingViewModel {
             switch result {
             case .success(let resp):
                 self.reposItems = resp.items ?? []
-                self.state.value = self.reposItems.isEmpty ?
-                    .empty : .data
+                if self.reposItems.isEmpty {
+                    let emptyMessage = "Couldn't find any repo related to \(query)"
+                    self.state.value = .error(message: emptyMessage)
+                } else {
+                    self.state.value = .data
+                }
+                
             case .failure(let error):
                 self.state.value = .error(message: error.localizedDescription)
             }
