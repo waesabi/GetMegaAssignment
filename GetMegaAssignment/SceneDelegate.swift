@@ -23,7 +23,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     private func setupRootView(scene: UIWindowScene) {
         self.window = UIWindow(windowScene: scene)
-        let viewModel = TrendingViewModel(screenTitle: "Trending")
+        let service = TrendingService()
+        let viewModel = TrendingViewModel(screenTitle: "Trending", service: service)
         let rootVC = TrendingViewController(viewModel: viewModel)
         let navController = UINavigationController(
             rootViewController: rootVC)

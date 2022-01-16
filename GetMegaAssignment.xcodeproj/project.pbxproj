@@ -22,6 +22,13 @@
 		2F9EFD4B2793EE2000AA3A37 /* TrendingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F9EFD492793EE2000AA3A37 /* TrendingViewController.xib */; };
 		2F9EFD502793F44E00AA3A37 /* TrandingRepoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9EFD4E2793F44E00AA3A37 /* TrandingRepoCell.swift */; };
 		2F9EFD512793F44E00AA3A37 /* TrandingRepoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F9EFD4F2793F44E00AA3A37 /* TrandingRepoCell.xib */; };
+		2F9EFD542793FA6D00AA3A37 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9EFD532793FA6D00AA3A37 /* Service.swift */; };
+		2F9EFD562793FAB000AA3A37 /* TrendingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9EFD552793FAB000AA3A37 /* TrendingService.swift */; };
+		2F9EFD582793FB9F00AA3A37 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9EFD572793FB9F00AA3A37 /* Endpoint.swift */; };
+		2F9EFD5A2793FBE000AA3A37 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9EFD592793FBE000AA3A37 /* APIError.swift */; };
+		2F9EFD5D27940AF100AA3A37 /* TrendingRepoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9EFD5C27940AF100AA3A37 /* TrendingRepoModel.swift */; };
+		2F9EFD5F27940E8B00AA3A37 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9EFD5E27940E8B00AA3A37 /* Box.swift */; };
+		2F9EFD61279413DF00AA3A37 /* Arrays+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9EFD60279413DF00AA3A37 /* Arrays+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +49,13 @@
 		2F9EFD492793EE2000AA3A37 /* TrendingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrendingViewController.xib; sourceTree = "<group>"; };
 		2F9EFD4E2793F44E00AA3A37 /* TrandingRepoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrandingRepoCell.swift; sourceTree = "<group>"; };
 		2F9EFD4F2793F44E00AA3A37 /* TrandingRepoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrandingRepoCell.xib; sourceTree = "<group>"; };
+		2F9EFD532793FA6D00AA3A37 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		2F9EFD552793FAB000AA3A37 /* TrendingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingService.swift; sourceTree = "<group>"; };
+		2F9EFD572793FB9F00AA3A37 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		2F9EFD592793FBE000AA3A37 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		2F9EFD5C27940AF100AA3A37 /* TrendingRepoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingRepoModel.swift; sourceTree = "<group>"; };
+		2F9EFD5E27940E8B00AA3A37 /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
+		2F9EFD60279413DF00AA3A37 /* Arrays+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Arrays+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +106,8 @@
 			isa = PBXGroup;
 			children = (
 				2F9EFD362793E29200AA3A37 /* UIView+Layout.swift */,
+				2F9EFD5E27940E8B00AA3A37 /* Box.swift */,
+				2F9EFD60279413DF00AA3A37 /* Arrays+Extension.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -119,6 +135,7 @@
 		2F9EFD442793EB7D00AA3A37 /* VCs */ = {
 			isa = PBXGroup;
 			children = (
+				2F9EFD522793FA5F00AA3A37 /* service */,
 				2F9EFD452793EB8900AA3A37 /* Trending */,
 			);
 			path = VCs;
@@ -127,6 +144,7 @@
 		2F9EFD452793EB8900AA3A37 /* Trending */ = {
 			isa = PBXGroup;
 			children = (
+				2F9EFD5B27940AE000AA3A37 /* model */,
 				2F9EFD4D2793F24800AA3A37 /* cells */,
 				2F9EFD462793EBDB00AA3A37 /* TrendingViewModel.swift */,
 				2F9EFD482793EE2000AA3A37 /* TrendingViewController.swift */,
@@ -140,6 +158,25 @@
 				2F9EFD4E2793F44E00AA3A37 /* TrandingRepoCell.swift */,
 			);
 			path = cells;
+			sourceTree = "<group>";
+		};
+		2F9EFD522793FA5F00AA3A37 /* service */ = {
+			isa = PBXGroup;
+			children = (
+				2F9EFD532793FA6D00AA3A37 /* Service.swift */,
+				2F9EFD552793FAB000AA3A37 /* TrendingService.swift */,
+				2F9EFD572793FB9F00AA3A37 /* Endpoint.swift */,
+				2F9EFD592793FBE000AA3A37 /* APIError.swift */,
+			);
+			path = service;
+			sourceTree = "<group>";
+		};
+		2F9EFD5B27940AE000AA3A37 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				2F9EFD5C27940AF100AA3A37 /* TrendingRepoModel.swift */,
+			);
+			path = model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -218,13 +255,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F9EFD4A2793EE2000AA3A37 /* TrendingViewController.swift in Sources */,
+				2F9EFD5F27940E8B00AA3A37 /* Box.swift in Sources */,
 				2F9EFD222793E22500AA3A37 /* AppDelegate.swift in Sources */,
 				2F9EFD372793E29200AA3A37 /* UIView+Layout.swift in Sources */,
 				2F9EFD432793EB3000AA3A37 /* LoadingStateView.swift in Sources */,
 				2F9EFD472793EBDB00AA3A37 /* TrendingViewModel.swift in Sources */,
+				2F9EFD5A2793FBE000AA3A37 /* APIError.swift in Sources */,
+				2F9EFD542793FA6D00AA3A37 /* Service.swift in Sources */,
+				2F9EFD61279413DF00AA3A37 /* Arrays+Extension.swift in Sources */,
 				2F9EFD242793E22500AA3A37 /* SceneDelegate.swift in Sources */,
 				2F9EFD502793F44E00AA3A37 /* TrandingRepoCell.swift in Sources */,
+				2F9EFD5D27940AF100AA3A37 /* TrendingRepoModel.swift in Sources */,
 				2F9EFD3B2793E92C00AA3A37 /* ErrorStateView.swift in Sources */,
+				2F9EFD582793FB9F00AA3A37 /* Endpoint.swift in Sources */,
+				2F9EFD562793FAB000AA3A37 /* TrendingService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

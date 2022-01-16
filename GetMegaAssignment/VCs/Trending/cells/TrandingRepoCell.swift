@@ -36,4 +36,20 @@ class TrandingRepoCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    func configureRepoData(repo: TrendingRepoItem) {
+        self.loginNameLabel.text = repo.owner?.login
+        self.nameLabel.text = repo.fullName
+        self.descriptionLabel.text = repo.description
+        self.languageLabel.text = repo.language
+        
+        let starCount = repo.watchers ?? 0
+        self.starLabel.text = "\(starCount)"
+        
+        let forkCount = repo.forksCount ?? 0
+        self.forkLabel.text = "\(forkCount)"
+        
+        let isExpanded = repo.isExpanded ?? false
+        self.bottomInfoStackView.isHiddenInStackView = !isExpanded
+    }
+    
 }
