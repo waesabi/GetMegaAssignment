@@ -33,7 +33,7 @@
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="752" text="vscode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dz5-os-3uc">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="752" text="vscode" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dz5-os-3uc">
                                 <rect key="frame" x="0.0" y="25" width="228" height="19.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                 <nil key="textColor"/>
@@ -42,7 +42,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="G2J-EU-Nrw">
                                 <rect key="frame" x="0.0" y="52.5" width="228" height="164.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Visual Studio Code" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iXk-Lx-TAr">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Visual Studio Code" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iXk-Lx-TAr">
                                         <rect key="frame" x="0.0" y="0.0" width="228" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -100,7 +100,7 @@
                                                 </subviews>
                                             </stackView>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="CuS-f4-TNs" firstAttribute="leading" secondItem="EW9-Jd-9Xo" secondAttribute="leading" id="6TP-cj-tyV"/>
                                             <constraint firstAttribute="bottom" secondItem="CuS-f4-TNs" secondAttribute="bottom" id="YO8-Yq-nbo"/>
@@ -127,11 +127,14 @@
                 <outlet property="bottomInfoStackView" destination="G2J-EU-Nrw" id="Ros-wx-BQh"/>
                 <outlet property="descriptionLabel" destination="iXk-Lx-TAr" id="qoV-YR-RkX"/>
                 <outlet property="forkLabel" destination="pY8-Zc-d2I" id="pQV-eG-IPv"/>
+                <outlet property="forkStackView" destination="4RV-pd-Kgr" id="MeJ-1y-F4Y"/>
                 <outlet property="languageLabel" destination="8Ye-iQ-KBT" id="1zc-mS-y1P"/>
+                <outlet property="languageStackView" destination="dw9-Ig-Bhg" id="UDt-Y2-RjC"/>
                 <outlet property="loginNameLabel" destination="SMP-OI-vpS" id="dO4-cq-LW9"/>
                 <outlet property="logoImageView" destination="HH0-Iy-Y3b" id="hed-WU-Ung"/>
                 <outlet property="nameLabel" destination="Dz5-os-3uc" id="fZD-Q5-1yT"/>
                 <outlet property="starLabel" destination="E3n-JA-rWk" id="Hsd-Hr-0Gv"/>
+                <outlet property="starStackView" destination="knK-C8-3xB" id="nT8-HQ-dv0"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="182.47767857142856"/>
         </tableViewCell>
@@ -141,9 +144,6 @@
         <image name="fork-black" width="24" height="24"/>
         <image name="nointernet_connection" width="297" height="306"/>
         <image name="star-yellow" width="24" height="24"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
