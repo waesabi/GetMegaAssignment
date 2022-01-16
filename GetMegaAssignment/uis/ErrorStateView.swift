@@ -34,6 +34,10 @@ class ErrorStateView: UIView {
         Bundle(for: Self.self).loadNibNamed("ErrorStateView", owner: self, options: nil)
         self.addSubview(self.contentView)
         self.contentView.fillSuperview()
+        self.cta.layer.borderWidth = 1
+        self.cta.layer.borderColor = UIColor.systemGreen.cgColor
+        self.cta.layer.cornerRadius = 4
+        self.cta.clipsToBounds = true
     }
     
     public func updateUIElement(titleColor: UIColor = .black, message: String, messageColor: UIColor = .gray) {

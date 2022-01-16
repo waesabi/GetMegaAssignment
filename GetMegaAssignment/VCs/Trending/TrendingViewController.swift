@@ -79,7 +79,12 @@ extension TrendingViewController {
             loading.fillSuperview()
             self.loadingStateView = loading
         case .empty:
-            break
+            let error = ErrorStateView()
+            error.backgroundColor = .clear
+            self.view.addSubview(error)
+            error.fillSuperview()
+            error.delegate = self.viewModel
+            self.errorStateView = error
         case .pullToRefresh:
             break
         case .data:
@@ -90,6 +95,7 @@ extension TrendingViewController {
             error.updateUIElement(message: message)
             error.backgroundColor = .clear
             self.view.addSubview(error)
+            error.delegate = self.viewModel
             error.fillSuperview()
             self.errorStateView = error
         case .reloadRow(let indexPaths):

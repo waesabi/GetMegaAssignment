@@ -32,7 +32,7 @@ class TrendingViewModel {
     func fetchTrendingRepo() {
         self.state.value = .loading
         let endPoint = Endpoint(path: "/search/repositories", queryItems: [
-            .init(name: "q", value: "android"),
+            .init(name: "q", value: "flutter"),
             .init(name: "per_page", value: "50"),
             .init(name: "page", value: "1"),
             .init(name: "order", value: "desc"),
@@ -43,7 +43,8 @@ class TrendingViewModel {
             switch result {
             case .success(let resp):
                 self.reposItems = resp.items ?? []
-                self.state.value = .data
+                self.state.value = self.reposItems.isEmpty ?
+                    .empty : .data
             case .failure(let error):
                 self.state.value = .error(message: error.localizedDescription)
             }
@@ -74,4 +75,12 @@ extension TrendingViewModel {
     func repo(at index: IndexPath) -> TrendingRepoItem? {
         self.reposItems[safe: index.row]
     }
+}
+
+extension TrendingViewModel: ErrorStateViewDelegate {
+    
+    func handleErrorCtaClick() {
+        self.fetchTrendingRepo()
+    }
+    
 }

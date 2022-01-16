@@ -29,16 +29,16 @@
                             <rect key="frame" x="15.5" y="0.0" width="297" height="227.5"/>
                         </imageView>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="pja-3K-eE9">
-                            <rect key="frame" x="9.5" y="251.5" width="309" height="46.5"/>
+                            <rect key="frame" x="49" y="251.5" width="230.5" height="46.5"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" verticalCompressionResistancePriority="754" text="Something went wrong" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZV1-LX-whF">
-                                    <rect key="frame" x="68" y="0.0" width="173.5" height="22"/>
+                                    <rect key="frame" x="28.5" y="0.0" width="173.5" height="22"/>
                                     <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="16"/>
                                     <color key="textColor" name="IND Black"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" verticalCompressionResistancePriority="754" text="Sorry, we had trouble with your request. Please try again" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dlr-ey-qba">
-                                    <rect key="frame" x="0.0" y="30" width="309" height="16.5"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" verticalCompressionResistancePriority="754" text="An alien is probabily blocking your signal." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dlr-ey-qba">
+                                    <rect key="frame" x="0.0" y="30" width="230.5" height="16.5"/>
                                     <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="12"/>
                                     <color key="textColor" name="IND Gray"/>
                                     <nil key="highlightedColor"/>
