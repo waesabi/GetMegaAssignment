@@ -33,7 +33,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             type: Cache<String, TrendingRepoModel>.self)
         if let savedData = savedCache {
             self.cache = savedData
-            dump(savedData)
         }
         let repoLoader = TrendingRepoLoader(service: service, cache: cache)
         let viewModel = TrendingViewModel(screenTitle: "Trending", repoLoader: repoLoader)

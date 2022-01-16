@@ -22,7 +22,6 @@ class TrendingService: Service {
             completion(.failure(.invalidURL))
             return
         }
-        print("url: \(url.absoluteString)")
         let dataTask = URLSession.shared.dataTask(with: url) { data, response, error in
             if let _ = error {
                 DispatchQueue.main.async {
