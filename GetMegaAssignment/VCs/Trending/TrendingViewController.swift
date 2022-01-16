@@ -39,9 +39,13 @@ extension TrendingViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(
-            withIdentifier: String(describing: UITableViewCell.self),
+            withIdentifier: String(describing: TrandingRepoCell.self),
             for: indexPath)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
 }
@@ -57,6 +61,9 @@ extension TrendingViewController {
         self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        self.tableView.register(
+            TrandingRepoCell.xib,
+            forCellReuseIdentifier: TrandingRepoCell.resusableIdentifier)
         self.tableView.register(
             UITableViewCell.self,
             forCellReuseIdentifier: String(describing: UITableViewCell.self))

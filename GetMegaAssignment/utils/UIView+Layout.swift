@@ -106,6 +106,21 @@ extension UIView {
         translatesAutoresizingMaskIntoConstraints = false
         heightAnchor.constraint(equalToConstant: constant).isActive = true
     }
+    
+    /*
+     Apple known bug with stackview
+     https://stackoverflow.com/questions/43831695/stackview-ishidden-attribute-not-updating-as-expected
+     */
+    var isHiddenInStackView: Bool {
+        get {
+            return isHidden
+        }
+        set {
+            if isHidden != newValue {
+                isHidden = newValue
+            }
+        }
+    }
 }
 
 struct AnchoredConstraints {

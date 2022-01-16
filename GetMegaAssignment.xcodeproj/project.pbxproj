@@ -20,6 +20,8 @@
 		2F9EFD472793EBDB00AA3A37 /* TrendingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9EFD462793EBDB00AA3A37 /* TrendingViewModel.swift */; };
 		2F9EFD4A2793EE2000AA3A37 /* TrendingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9EFD482793EE2000AA3A37 /* TrendingViewController.swift */; };
 		2F9EFD4B2793EE2000AA3A37 /* TrendingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F9EFD492793EE2000AA3A37 /* TrendingViewController.xib */; };
+		2F9EFD502793F44E00AA3A37 /* TrandingRepoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9EFD4E2793F44E00AA3A37 /* TrandingRepoCell.swift */; };
+		2F9EFD512793F44E00AA3A37 /* TrandingRepoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F9EFD4F2793F44E00AA3A37 /* TrandingRepoCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		2F9EFD462793EBDB00AA3A37 /* TrendingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingViewModel.swift; sourceTree = "<group>"; };
 		2F9EFD482793EE2000AA3A37 /* TrendingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingViewController.swift; sourceTree = "<group>"; };
 		2F9EFD492793EE2000AA3A37 /* TrendingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrendingViewController.xib; sourceTree = "<group>"; };
+		2F9EFD4E2793F44E00AA3A37 /* TrandingRepoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrandingRepoCell.swift; sourceTree = "<group>"; };
+		2F9EFD4F2793F44E00AA3A37 /* TrandingRepoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrandingRepoCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +99,7 @@
 		2F9EFD382793E88400AA3A37 /* xib */ = {
 			isa = PBXGroup;
 			children = (
+				2F9EFD4F2793F44E00AA3A37 /* TrandingRepoCell.xib */,
 				2F9EFD492793EE2000AA3A37 /* TrendingViewController.xib */,
 				2F9EFD3E2793E99300AA3A37 /* ErrorStateView.xib */,
 				2F9EFD402793E9A000AA3A37 /* LoadingStateView.xib */,
@@ -122,10 +127,19 @@
 		2F9EFD452793EB8900AA3A37 /* Trending */ = {
 			isa = PBXGroup;
 			children = (
+				2F9EFD4D2793F24800AA3A37 /* cells */,
 				2F9EFD462793EBDB00AA3A37 /* TrendingViewModel.swift */,
 				2F9EFD482793EE2000AA3A37 /* TrendingViewController.swift */,
 			);
 			path = Trending;
+			sourceTree = "<group>";
+		};
+		2F9EFD4D2793F24800AA3A37 /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				2F9EFD4E2793F44E00AA3A37 /* TrandingRepoCell.swift */,
+			);
+			path = cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -188,6 +202,7 @@
 			files = (
 				2F9EFD2E2793E22800AA3A37 /* LaunchScreen.storyboard in Resources */,
 				2F9EFD412793E9A000AA3A37 /* LoadingStateView.xib in Resources */,
+				2F9EFD512793F44E00AA3A37 /* TrandingRepoCell.xib in Resources */,
 				2F9EFD3F2793E99300AA3A37 /* ErrorStateView.xib in Resources */,
 				2F9EFD2B2793E22800AA3A37 /* Assets.xcassets in Resources */,
 				2F9EFD292793E22500AA3A37 /* Main.storyboard in Resources */,
@@ -208,6 +223,7 @@
 				2F9EFD432793EB3000AA3A37 /* LoadingStateView.swift in Sources */,
 				2F9EFD472793EBDB00AA3A37 /* TrendingViewModel.swift in Sources */,
 				2F9EFD242793E22500AA3A37 /* SceneDelegate.swift in Sources */,
+				2F9EFD502793F44E00AA3A37 /* TrandingRepoCell.swift in Sources */,
 				2F9EFD3B2793E92C00AA3A37 /* ErrorStateView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
