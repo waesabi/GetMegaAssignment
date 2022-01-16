@@ -11,6 +11,8 @@ class TrendingViewController: UIViewController {
     
     private let viewModel: TrendingViewModel
     
+    @IBOutlet private(set) weak var tableView: UITableView!
+    
     init(viewModel: TrendingViewModel) {
         self.viewModel = viewModel
         super.init(
@@ -24,7 +26,40 @@ class TrendingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .white
-        self.title = viewModel.screenTitle
+        setupViews()
     }
+
+}
+
+extension TrendingViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 20
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(
+            withIdentifier: String(describing: UITableViewCell.self),
+            for: indexPath)
+        return cell
+    }
+    
+}
+
+extension TrendingViewController {
+    
+    private func setupViews() {
+        self.setupTableView()
+        self.title = self.viewModel.screenTitle
+    }
+    
+    private func setupTableView() {
+        self.tableView.rowHeight = UITableView.automaticDimension
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        self.tableView.register(
+            UITableViewCell.self,
+            forCellReuseIdentifier: String(describing: UITableViewCell.self))
+    }
+    
 }
