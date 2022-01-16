@@ -19,13 +19,13 @@ enum VcState {
 class TrendingViewModel: TrendingViewModelProtocol {
     
     let screenTitle: String
-    private let service: Service
+    private let repoLoader: TrendingRepoLoaderProtocol
     let state: Box<VcState>
     private var reposItems: [TrendingRepoItem] = []
     
-    init(screenTitle: String, service: Service) {
+    init(screenTitle: String, repoLoader: TrendingRepoLoaderProtocol) {
         self.screenTitle = screenTitle
-        self.service = service
+        self.repoLoader = repoLoader
         self.state = .init(.loading)
     }
     
@@ -75,8 +75,7 @@ extension TrendingViewModel {
             .init(name: "order", value: "desc"),
             .init(name: "since", value: "daily")
         ])
-        service.fetch(endpoint: endPoint,
-                      type: TrendingRepoModel.self) { result in
+        repoLoader.fetchTrendingRepos(endpoint: endPoint) { result in
             switch result {
             case .success(let resp):
                 self.reposItems = resp.items ?? []

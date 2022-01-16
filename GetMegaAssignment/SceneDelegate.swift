@@ -25,7 +25,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     private func setupRootView(scene: UIWindowScene) {
         self.window = UIWindow(windowScene: scene)
         let service = TrendingService()
-        let viewModel = TrendingViewModel(screenTitle: "Trending", service: service)
+        let repoLoader = TrendingRepoLoader(service: service, cache: .init())
+        let viewModel = TrendingViewModel(screenTitle: "Trending", repoLoader: repoLoader)
         let rootVC = TrendingViewController(viewModel: viewModel)
         let navController = UINavigationController(
             rootViewController: rootVC)

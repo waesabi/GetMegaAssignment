@@ -15,7 +15,7 @@ class TrendingService: Service {
         
         if !NetworkMonitor.shared.isReachable {
             completion(.failure(.custom(message: "Please check your network connection")))
-            return            
+            return
         }
         
         guard let url = endpoint.url else {
