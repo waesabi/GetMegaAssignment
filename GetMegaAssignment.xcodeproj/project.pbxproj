@@ -31,6 +31,8 @@
 		2F9EFD61279413DF00AA3A37 /* Arrays+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9EFD60279413DF00AA3A37 /* Arrays+Extension.swift */; };
 		2F9EFD632794368A00AA3A37 /* TrendingViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9EFD622794368A00AA3A37 /* TrendingViewModelProtocol.swift */; };
 		2F9EFD6527943AAD00AA3A37 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9EFD6427943AAD00AA3A37 /* NetworkMonitor.swift */; };
+		2F9EFD682794474500AA3A37 /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9EFD672794474500AA3A37 /* Cache.swift */; };
+		2F9EFD6A279457EC00AA3A37 /* TrendingRepoLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9EFD69279457EC00AA3A37 /* TrendingRepoLoader.swift */; };
 		519A7723B788B420F6F72698 /* Pods_GetMegaAssignment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCDE330689A545A0DE7FFCDC /* Pods_GetMegaAssignment.framework */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +63,8 @@
 		2F9EFD60279413DF00AA3A37 /* Arrays+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Arrays+Extension.swift"; sourceTree = "<group>"; };
 		2F9EFD622794368A00AA3A37 /* TrendingViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingViewModelProtocol.swift; sourceTree = "<group>"; };
 		2F9EFD6427943AAD00AA3A37 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
+		2F9EFD672794474500AA3A37 /* Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
+		2F9EFD69279457EC00AA3A37 /* TrendingRepoLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingRepoLoader.swift; sourceTree = "<group>"; };
 		30519E7AD2D11BF22B4A87B9 /* Pods-GetMegaAssignment.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GetMegaAssignment.release.xcconfig"; path = "Target Support Files/Pods-GetMegaAssignment/Pods-GetMegaAssignment.release.xcconfig"; sourceTree = "<group>"; };
 		FCDE330689A545A0DE7FFCDC /* Pods_GetMegaAssignment.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GetMegaAssignment.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF0F3479F20BF10E89054645 /* Pods-GetMegaAssignment.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GetMegaAssignment.debug.xcconfig"; path = "Target Support Files/Pods-GetMegaAssignment/Pods-GetMegaAssignment.debug.xcconfig"; sourceTree = "<group>"; };
@@ -99,6 +103,7 @@
 		2F9EFD202793E22500AA3A37 /* GetMegaAssignment */ = {
 			isa = PBXGroup;
 			children = (
+				2F9EFD662794473900AA3A37 /* Cache */,
 				2F9EFD522793FA5F00AA3A37 /* service */,
 				2F9EFD442793EB7D00AA3A37 /* VCs */,
 				2F9EFD392793E91F00AA3A37 /* uis */,
@@ -180,6 +185,7 @@
 				2F9EFD552793FAB000AA3A37 /* TrendingService.swift */,
 				2F9EFD572793FB9F00AA3A37 /* Endpoint.swift */,
 				2F9EFD592793FBE000AA3A37 /* APIError.swift */,
+				2F9EFD69279457EC00AA3A37 /* TrendingRepoLoader.swift */,
 			);
 			path = service;
 			sourceTree = "<group>";
@@ -190,6 +196,14 @@
 				2F9EFD5C27940AF100AA3A37 /* TrendingRepoModel.swift */,
 			);
 			path = model;
+			sourceTree = "<group>";
+		};
+		2F9EFD662794473900AA3A37 /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				2F9EFD672794474500AA3A37 /* Cache.swift */,
+			);
+			path = Cache;
 			sourceTree = "<group>";
 		};
 		8E127AB48B4C6991F8CC8309 /* Frameworks */ = {
@@ -330,6 +344,7 @@
 			files = (
 				2F9EFD4A2793EE2000AA3A37 /* TrendingViewController.swift in Sources */,
 				2F9EFD5F27940E8B00AA3A37 /* Box.swift in Sources */,
+				2F9EFD6A279457EC00AA3A37 /* TrendingRepoLoader.swift in Sources */,
 				2F9EFD222793E22500AA3A37 /* AppDelegate.swift in Sources */,
 				2F9EFD372793E29200AA3A37 /* UIView+Layout.swift in Sources */,
 				2F9EFD432793EB3000AA3A37 /* LoadingStateView.swift in Sources */,
@@ -338,6 +353,7 @@
 				2F9EFD5A2793FBE000AA3A37 /* APIError.swift in Sources */,
 				2F9EFD6527943AAD00AA3A37 /* NetworkMonitor.swift in Sources */,
 				2F9EFD542793FA6D00AA3A37 /* Service.swift in Sources */,
+				2F9EFD682794474500AA3A37 /* Cache.swift in Sources */,
 				2F9EFD61279413DF00AA3A37 /* Arrays+Extension.swift in Sources */,
 				2F9EFD242793E22500AA3A37 /* SceneDelegate.swift in Sources */,
 				2F9EFD502793F44E00AA3A37 /* TrandingRepoCell.swift in Sources */,

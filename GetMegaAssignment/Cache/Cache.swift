@@ -11,15 +11,31 @@ import UIKit
 final class Cache<Key: Hashable, Value> {
     
     private let wrappedValue = NSCache<WrappedKey, Entry>()
+    private let dateProvider: () -> Date
+    private let entryLifetime: TimeInterval
+    
+    init(dateProvider: @escaping () -> Date = Date.init,
+         entryLifetime: TimeInterval = 2 * 60 * 60) {
+        // entryLifetime -> 2 hours
+        self.dateProvider = dateProvider
+        self.entryLifetime = entryLifetime
+    }
     
     func insert(_ value: Value, forKey key: Key) {
-        let entry = Entry(value: value)
+        let date = dateProvider().addingTimeInterval(entryLifetime)
+        let entry = Entry(value: value, expirationDate: date)
         wrappedValue.setObject(entry, forKey: .init(key))
     }
     
     func value(forKey key: Key) -> Value? {
-        let entry = wrappedValue.object(forKey: .init(key))
-        return entry?.value
+        guard let entry = wrappedValue.object(forKey: .init(key)) else {
+            return nil
+        }
+        guard dateProvider() < entry.expirationDate else {
+            removeValue(forKey: key)
+            return nil
+        }
+        return entry.value
     }
     
     func removeValue(forKey key: Key) {
@@ -65,9 +81,11 @@ private extension Cache {
     
     final class Entry {
         let value: Value
+        let expirationDate: Date
         
-        init(value: Value) {
+        init(value: Value, expirationDate: Date) {
             self.value = value
+            self.expirationDate = expirationDate
         }
     }
     
