@@ -18,7 +18,6 @@ class NetworkMonitor {
 
     func startMonitoring() {
         monitor.pathUpdateHandler = { [weak self] path in
-            print(path.status)
             self?.isReachable = path.status == .satisfied
         }
         monitor.start(queue: queue)
