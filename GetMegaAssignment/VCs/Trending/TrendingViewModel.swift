@@ -67,7 +67,7 @@ extension TrendingViewModel {
 extension TrendingViewModel {
     
     private func fetchTrendingRepos() {
-        let query = "flutter"
+        let query = "react"
         let endPoint = Endpoint(path: "/search/repositories", queryItems: [
             .init(name: "q", value: query),
             .init(name: "per_page", value: "50"),

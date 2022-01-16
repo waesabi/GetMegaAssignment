@@ -10,6 +10,9 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    
+    private var cache = Cache<String, TrendingRepoModel>()
+    private let trendingCacheFileName = "trendindRepo"
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
@@ -25,7 +28,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     private func setupRootView(scene: UIWindowScene) {
         self.window = UIWindow(windowScene: scene)
         let service = TrendingService()
-        let repoLoader = TrendingRepoLoader(service: service, cache: .init())
+        let savedCache = try? loadEntryFromDisk(
+            withName: trendingCacheFileName,
+            type: Cache<String, TrendingRepoModel>.self)
+        if let savedData = savedCache {
+            self.cache = savedData
+            dump(savedData)
+        }
+        let repoLoader = TrendingRepoLoader(service: service, cache: cache)
         let viewModel = TrendingViewModel(screenTitle: "Trending", repoLoader: repoLoader)
         let rootVC = TrendingViewController(viewModel: viewModel)
         let navController = UINavigationController(
@@ -62,6 +72,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Called as the scene transitions from the foreground to the background.
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
+        
+        // Save the data to disk
+        try? cache.saveToDisk(withName: trendingCacheFileName)
     }
 
 
