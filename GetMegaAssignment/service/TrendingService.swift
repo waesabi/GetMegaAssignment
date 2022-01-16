@@ -12,6 +12,12 @@ import Foundation
 class TrendingService: Service {
     
     func fetch<T>(endpoint: Endpoint, type: T.Type, completion: @escaping (Result<T, APIError>) -> Void) where T: Codable {
+        
+        if !NetworkMonitor.shared.isReachable {
+            completion(.failure(.custom(message: "Please check your network connection")))
+            return            
+        }
+        
         guard let url = endpoint.url else {
             completion(.failure(.invalidURL))
             return
