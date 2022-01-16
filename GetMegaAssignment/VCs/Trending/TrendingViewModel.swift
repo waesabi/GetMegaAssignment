@@ -7,7 +7,7 @@
 
 import Foundation
 
-class TrandingViewModel {
+class TrendingViewModel {
     
     
 }
